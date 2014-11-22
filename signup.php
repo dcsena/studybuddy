@@ -24,13 +24,16 @@ SET MAJOR -->
 		<!-- Account Information Fieldset
 		Input items here:
 		name/id  -> type
+		fname -> text
 		email  -> email input
-		username -> text  input
-		password1  -> password input
-		password2  -> password input
-		fname  -> text  input
-		zip_code -> text  input
-		custType -> radiobox -->
+		password  -> password input
+		school[] -> select option
+		grade -> select option
+		major[] -> multiselect option
+		class1,2,3,4 -> text
+		date -> text
+		time -> time
+		 -->
 
 		<div id="accountForm" class="form-group">
 			<fieldset>
@@ -47,18 +50,13 @@ SET MAJOR -->
 					<input type="password" required name="password1" class="form-control">
 				</label>
 				<br/>
-				<label>Confirm Password: *
-					<input type="password" required name="password2" class="form-control">
-				</label>
-				<span id="password"></span>
-				<br/>
 				<label>
 					What school are you in?
 					<select name="school[]" id="school" class = "form-control">
 						<option>Select school here</option>
 					</select>
 				</label>
-
+				<br/>
 
 				<label>Grade *
 					<select name = "grade" id = "grade" class = "form-control">
@@ -75,6 +73,7 @@ SET MAJOR -->
 						<option>Select Major Here</option>
 					</select>
 				</label>
+				<br/>
 				<label> List the classes you need help in: </br>
 					Class 1:
 					<input type="text" name = "class1">
@@ -89,8 +88,14 @@ SET MAJOR -->
 					<input type="text" name = "class4">	
 					</br>				
 				</label>
+				<br/>
 				<label> What day are you available to study?
-					<input type="text" id = "datepicker" onClick =  "showDate();">
+					<input type="text" name = "date" id = "datepicker">
+				</label>
+				<br/>
+				<label>
+					What time are you available to study?
+					<input type="time" name = "time">
 				</label>
 
 			</fieldset>
