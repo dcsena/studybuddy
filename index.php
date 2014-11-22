@@ -10,13 +10,13 @@
 		include("header.php");
 	?>
 	<h1> Meet friends in your classes. </h1>
-
+	<br/>
 
 	<a href="signup.php">Signup</a>
 	<a href="login.php">Login</a>
 
 
-
+	<br/>
 	<?php
 		include("footer.php");
 	?>

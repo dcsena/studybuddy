@@ -1,0 +1,70 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,
+a, img, ol, ul, li, footer, header, nav
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+ol, ul {
+	list-style: none;
+}
+/*
+End Reset
+*/
+nav{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	background-color: black;
+	position: fixed;
+	z-index: 1;
+	height: 2%;
+	width: 100%;
+	text-align: center;
+	color: #ffffff;
+}
+nav ul{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	background: #222222;
+	background: -moz-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+	background: -webkit-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+	background: -o-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+	background: -ms-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+	background: linear-gradient(to top, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+}
+nav ul li{
+	display: inline;
+	padding: 0% 2% 0% 2%;
+	border-left: 1px solid rgba(0,0,0,0.22);
+}
+nav a{
+	text-decoration: none;
+	/*border-left: 1px solid rgba(255,255,255,0.15);*/
+	/*border: 1px solid black;
+	border-radius: 10px;*/
+	color: #ffffff;
+}
+nav ul li:hover, nav ul li:active{
+	background: #1275ae;
+	background: -moz-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
+	background: -webkit-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
+	background: -o-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
+	background: -ms-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
+	background: linear-gradient(to top, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
+}
+body{
+	background-color: #008000;
+}
