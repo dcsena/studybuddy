@@ -1,6 +1,6 @@
 <?php
 	require_once("header.php");
-	$dbconn = pg_connect("host=ec2-54-243-245-159.compute-1.amazonaws.com dbname=d9ekpsg66labji user=awmugmpdenzddy password=ps-jTmFdmIIU8V")
+	$dbconn = pg_connect("host=ec2-54-243-245-159.compute-1.amazonaws.com dbname=d9ekpsg66labji user=awmugmpdenzddy password=ps-jTmFdmIIU8VMWs2A8nX_3eQ")
 		or die('Could not connect: ' . pg_last_error());
 
 	$query = 'SELECT * FROM authors';
