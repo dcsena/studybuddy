@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-multiselect.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+</head>
+<body>
+<!-- NEEDS TO BE IMPLEMENTED:
+SET MAJOR -->
+<body onload="setMajor(); setSchool();">
+	<header>
+		<h1>StudyBuddy</h1>
+		<h4>Who are you studying with?</h4>
+	</header>
+
+
+	<form role="form" class="form" name="account_setup" autocomplete="off" action="process2.php" method="post" onSubmit="return validate(this)">
+
+		<!-- Account Information Fieldset
+		Input items here:
+		name/id  -> type
+		email  -> email input
+		username -> text  input
+		password1  -> password input
+		password2  -> password input
+		fname  -> text  input
+		zip_code -> text  input
+		custType -> radiobox -->
+
+		<div id="accountForm" class="form-group">
+			<fieldset>
+				<legend>Account Information:</legend>
+				<label>First Name: *
+					<input type="text" name="fname" required placeholder="Dylan" class="form-control">
+				</label>
+				</br>
+				<label>Email: *
+					<input type="email" name="email" required placeholder="example@study.com" class="form-control" autofocus>
+				</label>
+				<br/>
+				<label>Password: *
+					<input type="password" required name="password1" class="form-control">
+				</label>
+				<br/>
+				<label>Confirm Password: *
+					<input type="password" required name="password2" class="form-control">
+				</label>
+				<span id="password"></span>
+				<br/>
+				<label>
+					What school are you in?
+					<select name="school[]" id="school" class = "form-control">
+						<option>Select school here</option>
+					</select>
+				</label>
+
+
+				<label>Grade *
+					<select name = "grade" id = "grade" class = "form-control">
+						<option value="Freshman">Freshman</option>
+						<option value="Sophomore">Sophomore</option>
+						<option value="Junior">Junior</option>
+						<option value="Senior">Senior</option>
+						<option value="Other">Other</option>
+					</select>
+				</label>
+				<br/>
+				<label> What major are you? </br>
+					<select name = "major[]" id="major" class = "form-control" multiple = "multiple">
+						<option>Select Major Here</option>
+					</select>
+				</label>
+				<label> List the classes you need help in: </br>
+					Class 1:
+					<input type="text" name = "class1">
+					</br>
+					Class 2:
+					<input type="text" name = "class2">
+					</br>
+					Class 3:
+					<input type="text" name = "class3">
+					</br>
+					Class 4:
+					<input type="text" name = "class4">	
+					</br>				
+				</label>
+				<label>
+					
+
+				</label>
+
+			</fieldset>
+		</div>
+		<br/>
+
+		<!-- Submit/Reset Buttons -->
+		<div id="buttons">
+			<button id="action_button" class="form_buttons btn btn-primary" type="submit">Submit</button>
+			<button class="form_buttons btn btn-default" type="reset" onclick="resetForm();">Reset</button>
+		</div>
+	</form>
+	
+	<?php
+		include("footer.php");
+	?>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+	<script src="js/form.js"></script>
+</body>
+</html>
