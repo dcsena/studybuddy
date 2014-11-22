@@ -6,14 +6,14 @@
 // 	$("#sellerForm").hide();
 // }
 function showDate(){
-  $( "#datepicker" ).datepicker({
-      showButtonPanel: true
-    });
+	var date = $('#datepicker');
+	date.datepicker({showOn: "both"});
 }
 function setSchool(){
 	var schoolList = ["University of Michigan"];
 
 	var dropdown = document.getElementById("school");
+	dropdown.remove(0);
 	for (var i = 0; i < schoolList.length; ++i) {
 		var opt = document.createElement('option');
 		opt.innerHTML = schoolList[i];
