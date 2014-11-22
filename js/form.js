@@ -7,7 +7,7 @@
 // }
 function showDate(){
 	var date = document.getElementById("datepicker");
-	
+	date.datepicker({showButtonPanel: true});
 }
 
 

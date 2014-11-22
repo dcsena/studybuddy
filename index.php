@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +23,3 @@
 	
 </body>
 </html>
-=======
-<?php
-echo "HELLO WORLD<br>ARE YOU LOOKING FOR SOMEBODY TO STUDY WITH?<BR>WELL LOOK NO FARTHER<BR>BECAUSE WE'LL FIND YOU SOMEBODY"
-?>
->>>>>>> origin/master
