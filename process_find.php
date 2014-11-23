@@ -16,7 +16,7 @@
 	$class1 = $_POST['class1'];
 	$date = $_POST['date'];
 	$time = $_POST['time'];
-
+	echo "Made it this far!";
 	$db = new Database();
 	$query = "SELECT * FROM ClassList WHERE email='" . $email  . "'";
 	$db->query($query);
@@ -122,7 +122,7 @@
 		$location = "Hatcher and Shapiro Libraries";
 		return $location;
 	}
-	getLocation($date,$time);
+	// getLocation($date,$time);
 	$query = "INSERT INTO ClassList (email, class1, dates, time, location) " .
 					"VALUES ('$email', '$class1', '$date', '$time','$location')";
 	echo $query;
