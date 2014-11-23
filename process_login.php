@@ -1,5 +1,6 @@
 <?php
 	include("database.php");
+	include("header.php");
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$db = new Database();
@@ -19,6 +20,8 @@
 			$_SESSION['email'] = $email;
 			$_SESSION['user'] = $result['name'];
 			echo "congrats, you've logged in";
+			header("Location: /find.php");
+			exit;
 		} else {
 			echo "incorrrect password.  this incident has been reported";
 		}

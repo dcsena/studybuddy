@@ -48,7 +48,7 @@
 	function displaySuccess() {
 		global $name;
 		global $email;
-		$_SESSION['name'] = $name;
+		$_SESSION['user'] = $name;
 		$_SESSION['email'] = $email;
 		echo "Welcome, " . $name . "<br>Your account has been created!  Now go find some study buddies";
 		header("Location: /find.php");

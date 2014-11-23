@@ -26,11 +26,11 @@
 	session_start();
 	if (!isset($_SESSION['user'])) {
 		$_SESSION['user'] = "unknown user";
-		echo "Not signed in.";
+		echo "<h2>Not signed in.";
 		echo "<div id = \"status\">\n";
 		echo "<a href=\"signup.php\">Signup</a>\n";
 		echo "<a href=\"login.php\">Login</a>\n";
-		echo "</div>\n";
+		echo "</div>\n</h2>";
 	}
 	else{
 		echo "<h2>Welcome, " . $_SESSION['user'] . "</h2>";
