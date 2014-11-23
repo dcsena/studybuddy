@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-multiselect.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 </head>
-<body>
+<body style="background-color: #228022;">
 	<header>
 <?php
 	$menu = array(
@@ -39,15 +39,14 @@
 	echo generatureMenu($menu);
 	session_start();
 	if (!isset($_SESSION['user'])) {
-		$_SESSION['user'] = "unknown user";
-		echo "<h2>Not signed in.";
-		echo "<div id = \"status\">\n";
-		echo "<a href=\"signup.php\">Signup</a>\n";
-		echo "<a href=\"login.php\">Login</a>\n";
-		echo "</div>\n</h2>";
+		echo "<div id='welcome'>Not signed in.</div><br>";
+		echo "<div id = \"login\">\n";
+		echo "<a href=\"signup.php\" class='btn btn-default signuplogin'>Signup</a>\n";
+		echo "<a href=\"login.php\" class='btn btn-default signuplogin'>Login</a>\n";
+		echo "</div>";
 	}
 	else{
-		echo "<h2>Welcome, " . $_SESSION['user'] . "</h2>";
+		echo "<div id='welcome'>Welcome, " . $_SESSION['user'] . "</div>";
 	}
 ?>
 </header>
