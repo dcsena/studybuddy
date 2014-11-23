@@ -41,7 +41,7 @@
 
 	function displayError($errorMsg) {
 		echo $errorMsg;
-		header("Location: localhost/studybuddy/studybuddy/login.php");
+		header("Location: localhost/studybuddy/studybuddy/signup.php");
 		exit();
 	}
 
