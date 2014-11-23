@@ -21,10 +21,12 @@
 				</label>
 				<br/><br/>
 				<label>
-					What time are you available to study? <br/>
+					When are you available to study? <br/>
 					<!--<input id="studytimes" type="time" name="time" class="form-control">-->
 					<div id="studytimes" style="margin-bottom: 20px;"></div>
 					<span id="time1">0:00</span> to <span id="time2">0:00</span>
+					<input type="hidden" name="time1" id="time1input">
+					<input type="hidden" name="time2" id="time2input">
 				</label>
 			</fieldset>
 			<div id="buttons">
@@ -68,7 +70,15 @@
 				$('#time1').html(t1);
 				$('#time2').html(t2);
 				function convertTime(t) {
-					if (false) {}
+					if (t >= 12 && t < 12) {
+						if (t * 2 % 2 == 0) {
+							return t.toString() + ":00 pm";
+						} else return (t - 0.5).toString() + ":30 pm";
+					} else if (t < 0) {
+						if (t * 2 % 2 == 0) {
+							return "12:00 am";
+						} else return "12:30 am";
+					}
 					else if (t >= 13) {
 						if (t * 2 % 2 == 0) {
 							return (t - 12).toString() + ":00 pm";
@@ -86,7 +96,9 @@
 			});
 		});
 		function validateFind(form){
-			
+			var times = $("#studytimes").slider("option", "values");
+			$("#time1input").val(times[0]);
+			$("#time2input").val(times[1]);
 		}
 	</script>
 <?php
