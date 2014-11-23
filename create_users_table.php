@@ -4,12 +4,12 @@
 
 	$query = 'CREATE TABLE Users (
 		name varchar(50) NOT NULL,
-		email varchar(50) PRIMARY KEY,
+		email varchar(255) PRIMARY KEY,
 		passwordhash varchar(255),
 		passwordsalt varchar(255),
-		college varchar(20),
+		college varchar(255),
 		grad_year integer,
-		major varchar(50)
+		major varchar(255)
 	);';
 	$result = pg_query($query) or die("Query failed: " . pg_last_error());
 	pg_free_result($result);
