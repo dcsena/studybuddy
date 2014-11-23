@@ -22,6 +22,47 @@
 	$db->query($query);
 	$result = $db->get_row();
 	$location = "UGLI";
+	function getLocation($date, $time){
+
+		$ch = curl_init();
+		$url = "http://umich.resourcescheduler.net/rsrequest/User.asp";
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch,CURLOPT_POST,true);
+		$name = $_SESSION['user'];
+		$password = "wildhacks1234";
+		$phone = "5514273069";
+		$data = array(
+			fName => $name,
+			lName => "Bob",
+			Email => $email,
+			Phone => $phone,
+			Pwd => $password,
+			Pwd2 => $password
+		);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+		$output = curl_exec($ch);
+		$info = curl_getinfo($ch);
+		curl_close($ch);
+
+		$url2 = "http://umich.resourcescheduler.net/rsrequest/Wizard.asp?ID=1";
+		$data2 = array(
+			Desc => "For class $class1",
+			SelLoc => 7,
+			SelType => "",
+			Capacity => 2,
+			SelSchedType => "One Time"
+		);
+		$ch = curl_init();
+		curl_setopt($ch,CURLOPT_URL,$url2);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch,CURLOPT_POST,true);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$data2);
+		$output = curl_exec($ch);
+		$info = curl_getinfo($ch);
+		curl_close($ch);
+		return $location;
+	}
 	
 	$query = "INSERT INTO ClassList (email, class1, dates, time, location) " .
 					"VALUES ('$email', '$class1', '$date', '$time','$location')";
