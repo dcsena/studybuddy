@@ -52,7 +52,7 @@ SET MAJOR -->
 				<br/>
 				<label>
 					What school are you in?
-					<select name="school[]" id="school" class = "form-control">
+					<select name="school" id="school" class = "form-control">
 						<option>Select school here</option>
 					</select>
 				</label>

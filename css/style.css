@@ -86,9 +86,7 @@ h4{
 	font-weight: bold;
 }
 #status{
-	position: absolute;
-	top: 20;
-	right: 20;
+	position: relative;
 	text-align: center;
 	padding-right: 5%;
 
