@@ -4,10 +4,11 @@
 		or die('Could not connect: ' . pg_last_error());
 
 	$query = 'CREATE TABLE ClassList (
-		class varchar(50) PRIMARY KEY,
-		dates varchar(50) NOT NULL,
-		time varchar(255) NOT NULL,
-		location varchar(255) NOT NULL
+		email varchar(255) PRIMARY KEY,
+		class1 varchar(50) NOT NULL,
+		dates varchar(50),
+		time varchar(255),
+		location varchar(255)
 	);';
 	$result = pg_query($dbconn, $query) or die("Query failed: " . pg_last_error());
 	pg_free_result($result);

@@ -1,6 +1,12 @@
 <?php
 	require_once("header.php");
 	require_once("database.php");
+	if (!isset($_SESSION['email'])) {
+		echo "you need to login first";
+		header("Location: /login.php");
+		exit();
+	}
+	$email = $_SESSION['email'];
 	if (!isset($_POST['class1']) || 
 		!isset($_POST['date']) ||
 		!isset($_POST['time'])){
@@ -12,12 +18,12 @@
 	$time = $_POST['time'];
 
 	$db = new Database();
-	$query = "SELECT * FROM ClassList WHERE class='" . $class1  . "'";
+	$query = "SELECT * FROM ClassList WHERE email='" . $email  . "'";
 	$db->query($query);
 	$result = $db->get_row();
 	$location = "";
 	
-	$query = "INSERT INTO ClassList (class, dates, time, location) " .
+	$query = "INSERT INTO ClassList (class1, dates, time, location) " .
 					"VALUES ('$class1', '$date', '$time','$location')";
 	echo $query;
 	$result = $db->query($query);
@@ -45,16 +51,21 @@
 	 
 	// // Display your firstname
 	// echo $me->infos->firstname;
-	if (!isset($_SESSION['email'])) {
-		echo "you need to login";
+	$to = $_SESSION['email'];
+	$query = "SELECT * FROM ClassList
+		WHERE class1 = '". $class1 . "'";
+	$db->query($query);
+	if ($line = pg_fetch_assoc($db->dbh)){
 	}
 	else{
-		$to = $_SESSION['email'];
-		$user2 = "Matt Leibold";
-		$location = "UGLI";
-		$msg = "You will be meeting with $user2 for $class1 at: $time on $date at $location.";
-		$headers = "From: studybuddy@sb.com"."<".$to. ">\r\n";
-		mail($to, 'Study Buddy Signup', $msg,$headers);
-		echo "Email sent";
+		while ($row = pg_fetch_array($db->dbh)){
+			echo "$row[0];
+		}
 	}
+	$user2 = "Matt Leibold";
+	$location = "UGLI";
+	$msg = "You will be meeting with $user2 for $class1 at: $time on $date at $location.";
+	$headers = "From: studybuddy@sb.com"."<".$to. ">\r\n";
+	mail($to, 'Study Buddy Signup', $msg,$headers);
+	echo "Email sent";
 ?>
