@@ -1,5 +1,5 @@
 <?php
-	$header = "Made by Matt Leibold and Dylan Sena at Wildhacks";
+	$header = "<footer>Made by Matt Leibold and Dylan Sena at Wildhacks</footer>";
 	echo $header;
 
 ?>

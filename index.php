@@ -16,8 +16,8 @@
 	<br/>
 
 	<div id = "status"
-	<a href="signup.php">Signup</a>
-	<a href="login.php">Login</a>
+		<a href="signup.php">Signup</a>
+		<a href="login.php">Login</a>
 	</div>
 
 	<br/>
