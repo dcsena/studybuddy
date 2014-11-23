@@ -85,6 +85,3 @@ function setMajor() {
 function validateLogin(form){
 
 }
-function validateFind(form){
-	
-}

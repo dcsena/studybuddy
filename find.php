@@ -22,7 +22,9 @@
 				<br/><br/>
 				<label>
 					What time are you available to study? <br/>
-					<input type="time" name="time" class="form-control">
+					<!--<input id="studytimes" type="time" name="time" class="form-control">-->
+					<div id="studytimes" style="margin-bottom: 20px;"></div>
+					<span id="time1">0:00</span> to <span id="time2">0:00</span>
 				</label>
 			</fieldset>
 			<div id="buttons">
@@ -37,7 +39,55 @@
 	<script>
 		$(document).ready(function() {
 			showDate();
+			$("#studytimes").slider({ 
+				range: true,
+				min: 0,
+				max: 24,
+				step: 0.5
+			}).each(function() {
+			    // Add labels to slider whose values 
+			    // are specified by min, max
+			    // Get the options for this slider (specified above)
+			    var opt = $(this).data().uiSlider.options;
+			    // Get the number of possible values
+			    var vals = opt.max - opt.min;
+			    // Position the labels
+			    for (var i = 0; i <= vals; i += 12) {
+			        // Create a new element and position it with percentages
+			        var el = $('<label>' + (i + opt.min).toString() + ":00" + '</label>')
+			        			.css('left', (i/vals*100) + '%')
+			        			.css("position", "absolute")
+			        			.css('top', "10px");
+			        // Add the element inside #slider
+			        $("#studytimes").append(el);
+			    }
+			}).on("slide", function(event, ui) {
+				console.log(ui);
+				var t1 = convertTime(ui.values[0]);
+				var t2 = convertTime(ui.values[1]);
+				$('#time1').html(t1);
+				$('#time2').html(t2);
+				function convertTime(t) {
+					if (false) {}
+					else if (t >= 13) {
+						if (t * 2 % 2 == 0) {
+							return (t - 12).toString() + ":00 pm";
+						} else {
+							return (t - 12.5).toString() + ":30 pm";
+						}
+					} else {
+						if (t * 2 % 2 == 0) {
+							return t.toString() + ":00 am";
+						} else {
+							return (t - 0.5).toString() + ":30 am";
+						}
+					}
+				}
+			});
 		});
+		function validateFind(form){
+			
+		}
 	</script>
 <?php
 	} else {
