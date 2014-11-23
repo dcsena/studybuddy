@@ -33,6 +33,6 @@
 		echo "</div>\n";
 	}
 	else{
-		echo "Welcome, " . $_SESSION['user'];
+		echo "<h2>Welcome, " . $_SESSION['user'] . "</h2>";
 	}
 ?>
