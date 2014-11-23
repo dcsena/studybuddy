@@ -5,7 +5,7 @@
 
 	if (!isset($_POST['password1']) || 
 		!isset($_POST['email']) ||
-		!isset($_POST['name']) ||
+		!isset($_POST['fname']) ||
 		!isset($_POST['school[]']) ||
 		!isset($_POST['grade']) ||
 		!isset($_POST['major']) ||
@@ -18,6 +18,9 @@
 	$salt = openssl_random_pseudo_bytes(20);
 	$hash = crypt($salt . $password1);
 	$email = $_POST['email'];
+	$college = $_POST['school[]'];
+	$grade = $_POST['grade'];
+	$major = $_POST['major'];
 
 
 	//$query = "SELECT * FROM Users WHERE email='" . $email  . "'";
@@ -25,13 +28,20 @@
 	//$line = pg_fetch_array($result, null, PGSQL_ASSOC);
 	if ($line) displayError("The email address is already in use");
 
+	/*
+	$query = 	"INSERT INTO Users (name, email, passwordhash, passwordsalt, college, grad_year, major) " .
+					"VALUES ('$name', '$email', '$passwordhash', '$passwordsalt', '$college', $grad_year, '$major')";
+	$result = pg_query($query) or displayError(pg_last_error());
+
+	*/
+
 	//pg_free_result($result);
 
 	pg_close($dbconn);
 	require_once("footer.php");
 
-	function displayError(errorMsg) {
-		echo errorMsg;
+	function displayError($errorMsg) {
+		echo $errorMsg;
 	}
 
 	function displaySuccess() {
