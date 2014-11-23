@@ -1,8 +1,6 @@
 <?php
 	require_once("header.php");
-	$dbconn = pg_connect("host=ec2-54-243-245-159.compute-1.amazonaws.com dbname=d9ekpsg66labji user=awmugmpdenzddy password=ps-jTmFdmIIU8VMWs2A8nX_3eQ")
-		or die('Could not connect: ' . pg_last_error());
-
+	echo "penis";
 	if (!isset($_POST['password1']) || 
 		!isset($_POST['email']) ||
 		!isset($_POST['fname']) ||
@@ -23,10 +21,11 @@
 	$major = $_POST['major'];
 
 
+	//$db = new Database();
 	//$query = "SELECT * FROM Users WHERE email='" . $email  . "'";
-	//$result = pg_query($query) or die("Query failed: " . pg_last_error());
-	//$line = pg_fetch_array($result, null, PGSQL_ASSOC);
-	if ($line) displayError("The email address is already in use");
+	//$db->query($query);
+	//$result = $db->get_row();
+	if ($result) displayError("The email address is already in use");
 
 	/*
 	$query = 	"INSERT INTO Users (name, email, passwordhash, passwordsalt, college, grad_year, major) " .
@@ -35,9 +34,6 @@
 
 	*/
 
-	//pg_free_result($result);
-
-	pg_close($dbconn);
 	require_once("footer.php");
 
 	function displayError($errorMsg) {
