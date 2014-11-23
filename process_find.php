@@ -6,7 +6,7 @@
 		header("Location: /login.php");
 		exit();
 	}
-	$email = $_SESSION['email'];
+	global $email = $_SESSION['email'];
 	if (!isset($_POST['class1']) || 
 		!isset($_POST['date']) ||
 		!isset($_POST['time'])){
