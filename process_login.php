@@ -8,6 +8,9 @@
 	$result = $db->get_row();
 	if (!$result) {
 		echo "your email address is not in our system";
+		echo "redirecting to signup!";
+		header("Location: http://fathomless-dusk-5464.herokuapp.com/signup.php");
+		exit;
 	} else {
 		echo json_encode($result);
 		$hash = crypt($result['passwordsalt'] . $password);
