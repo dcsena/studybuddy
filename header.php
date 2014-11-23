@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if (!isset($_SESSION['user'])) {
+	if (!isset($_SESSION['user']) || $_SESSION['user'] == "unknown user") {
 		$_SESSION['user'] = "unknown user";
 		echo "Not signed in.";
 		echo "<div id = \"status\">\n";

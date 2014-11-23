@@ -16,6 +16,8 @@
 		echo json_encode($result);
 		$hash = crypt($password, $result['passwordsalt']);
 		if ($hash == $result['passwordhash']) {
+			$_SESSION['email'] = $email;
+			$_SESSION['user'] = $result['name'];
 			echo "congrats, you've logged in";
 		} else {
 			echo "incorrrect password.  this incident has been reported";
