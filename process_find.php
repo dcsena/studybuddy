@@ -6,7 +6,8 @@
 		header("Location: /login.php");
 		exit();
 	}
-	global $email = $_SESSION['email'];
+	$email = $_SESSION['email'];
+	$name = $_SESSION['name'];
 	if (!isset($_POST['class1']) || 
 		!isset($_POST['date']) ||
 		!isset($_POST['time'])){
@@ -29,6 +30,8 @@
 		curl_setopt($ch,CURLOPT_URL,$url);
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch,CURLOPT_POST,true);
+		global $name;
+		global $email;
 		$name = $_SESSION['user'];
 		$password = "wildhacks1234";
 		$phone = "5514273069";
@@ -76,9 +79,8 @@
 					$day = 'AM';
 			}
 			return "$hr $day";
-			$ch = curl_init();
 		}
-
+		$ch = curl_init();
 		$inputStartTime = convertToTime($time,0);
 		$duration = 2;
 		$inputEndTime = convertToTime($time,$duration);
