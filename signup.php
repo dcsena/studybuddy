@@ -1,29 +1,9 @@
 <?php require("header.php"); ?>
 <!-- NEEDS TO BE IMPLEMENTED:
 SET MAJOR -->
-	<script>
-	$(document).ready(function(){
-		setMajor();
-		setSchool();
-	});
-	</script>
+<div id='maincontent' style="width: 100%; background-color: inherit; text-align: center;">
 	<form role="form" class="form" name="account_setup" autocomplete="off" action="process2.php" method="post" onSubmit="return validate(this)">
-
-		<!-- Account Information Fieldset
-		Input items here:
-		name/id  -> type
-		fname -> text
-		email  -> email input
-		password  -> password input
-		school[] -> select option
-		grade -> select option
-		major[] -> multiselect option
-		class1,2,3,4 -> text
-		date -> text
-		time -> time
-		 -->
-
-		<div id="accountForm" class="form-group">
+		<div id="accountForm" class="form-group" style="background-color: #DDDDDD;">
 			<fieldset>
 				<legend>Account Information:</legend>
 				<label>First Name: *
@@ -62,30 +42,6 @@ SET MAJOR -->
 					</select>
 				</label>
 				<br/>
-				<!-- <label> List the classes you need help in: </br>
-					Class 1:
-					<input type="text" name = "class1">
-					</br>
-					Class 2:
-					<input type="text" name = "class2">
-					</br>
-					Class 3:
-					<input type="text" name = "class3">
-					</br>
-					Class 4:
-					<input type="text" name = "class4">	
-					</br>				
-				</label>
-				<br/>
-				<label> What day are you available to study?
-					<input type="text" name = "date" id = "datepicker">
-				</label>
-				<br/>
-				<label>
-					What time are you available to study?
-					<input type="time" name = "time">
-				</label> -->
-
 			</fieldset>
 		</div>
 		<br/>
@@ -96,8 +52,15 @@ SET MAJOR -->
 			<button class="form_buttons btn btn-default" type="reset" onclick="resetForm();">Reset</button>
 		</div>
 	</form>
-	
+</div>
+
 	<script src="js/form.js"></script>
+	<script>
+	$(document).ready(function(){
+		setMajor();
+		setSchool();
+	});
+	</script>
 	<?php
 		include("footer.php");
 	?>

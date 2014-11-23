@@ -11,9 +11,5 @@
 	echo $timestamp;
 ?>
 </footer>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
 </body>
 </html>
