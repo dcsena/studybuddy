@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Study Buddy Signup</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-multiselect.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
@@ -113,8 +112,6 @@ SET MAJOR -->
 		include("footer.php");
 	?>
 
-  	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
 	<script src="js/form.js"></script>

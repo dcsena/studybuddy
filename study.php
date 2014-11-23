@@ -15,11 +15,10 @@
 	</header>
 	<br/>
 
-	<div id = "status">
-		<a href="signup.php">Signup</a>
-		<a href="login.php">Login</a>
-	</div>
-
+	<p>
+		Below are your upcoming appointments:
+	</p>
+	
 	<br/>
 	<?php
 		include("footer.php");
