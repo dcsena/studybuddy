@@ -148,7 +148,7 @@
 	    $msg = "You will be meeting with $otherUsers for $class1 at: $meetTime on $meetDate at $meetLocation.";
 	    $params = array(
 	        "method" => "POST",
-	        "from" => "studybuddy@buddy.com",
+	        "from" => "dcsena@umich.edu",
 	        "to" => $to,
 	        "subject" => "Study Buddy Meetup",
 	        "text" => $msg
