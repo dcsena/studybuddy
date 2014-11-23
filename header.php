@@ -2,8 +2,15 @@
 	session_start();
 	if (!isset($_SESSION['user'])) {
 		$_SESSION['user'] = "unknown user";
+		echo "Not signed in.";
+		echo "<div id = \"status\">\n";
+		echo "<a href=\"signup.php\">Signup</a>\n";
+		echo "<a href=\"login.php\">Login</a>\n";
+		echo "</div>\n";
 	}
-	echo "welcome, " . $_SESSION['user'];
+	else{
+		echo "Welcome, " . $_SESSION['user'];
+	}
 	$menu = array(
 		'home'  => array('text'=>'Home',  'url'=>'index.php'),
 		'interests'  => array('text'=>'Find Buddies',  'url'=>'find.php'),

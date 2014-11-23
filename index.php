@@ -13,12 +13,6 @@
 	?>
 	<h1> Meet friends in your classes. </h1>
 	</header>
-	<br/>
-
-	<div id = "status">
-		<a href="signup.php">Signup</a>
-		<a href="login.php">Login</a>
-	</div>
 
 	<br/>
 	<?php
