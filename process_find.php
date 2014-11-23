@@ -122,16 +122,14 @@
 		$location = "Hatcher and Shapiro Libraries";
 		return $location;
 	}
-	
+	getLocation($date,$time);
 	$query = "INSERT INTO ClassList (email, class1, dates, time, location) " .
 					"VALUES ('$email', '$class1', '$date', '$time','$location')";
 	echo $query;
 	$result = $db->query($query);
 	echo json_encode($result);
 	displaySuccess();
-
-
-	require_once("footer.php");
+	
 
 	function displayError($errorMsg) {
 		echo $errorMsg;
@@ -140,38 +138,14 @@
 	function displaySuccess() {
 		echo "Class successfully entered.<br/>";
 	}
-
-	 
-	// // Create a new Object
-	// $mj = new Mailjet();
-	 
-	// // Get some of your account informations
-	// $me = $mj->userInfos();
-	 
-	// // Display your firstname
-	// echo $me->infos->firstname;
-	$query = "SELECT * FROM ClassList
-		WHERE class1 = '". $class1 . "'";
-	$db->query($query);
-	$match = $db->get_row();
-	if ($match == false){
-		echo "0 matches";
-	}
-	else{
-		echo "$match[0]";
-		while ($match = $db->get_row()){
-			echo "$match[0]";
-		}
-	}
 	include("php-mailjet-v3-simple.class.php");
-	function sendEmail() {
+	function sendEmail($class1,$to,$otherUsers,$meetTime,$meetDate,$meetLocation) {
 	    $mj = new Mailjet();
-	    $user2 = "Matt Leibold";
-	    $msg = "You will be meeting with $user2 for $class1 at: $time on $date at $location.";
+	    $msg = "You will be meeting with $otherUsers for $class1 at: $meetTime on $meetDate at $meetLocation.";
 	    $params = array(
 	        "method" => "POST",
 	        "from" => "studybuddy@buddy.com",
-	        "to" => $email,
+	        "to" => $to,
 	        "subject" => "Study Buddy Meetup",
 	        "text" => $msg
 	    );
@@ -183,5 +157,20 @@
 	    else
 	       echo "error - ".$mj->_response_code;
     	return $result;
-}
+	}
+	$query = "SELECT * FROM ClassList
+		WHERE class1 = '". $class1 . "'";
+	$db->query($query);
+	$match = $db->get_row();
+	if ($match == false){
+		echo "0 matches";
+	}
+	else{
+		echo "$match[0]";
+		while ($match = $db->get_row()){
+			sendEmail($class1,$match[1],"Matt Leibold",$date,$time,$location);
+		}
+	}
+
+	require_once("footer.php");
 ?>
