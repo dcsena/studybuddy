@@ -33,12 +33,12 @@
 		$password = "wildhacks1234";
 		$phone = "5514273069";
 		$data = array(
-			fName => $name,
-			lName => "Bob",
-			Email => $email,
-			Phone => $phone,
-			Pwd => $password,
-			Pwd2 => $password
+			"fName" => $name,
+			"lName" => "Bob",
+			"Email" => $email,
+			"Phone" => $phone,
+			"Pwd" => $password,
+			"Pwd2" => $password
 		);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
 		$output = curl_exec($ch);
@@ -47,11 +47,11 @@
 
 		$url2 = "http://umich.resourcescheduler.net/rsrequest/Wizard.asp?ID=1";
 		$data2 = array(
-			Desc => "For class $class1",
-			SelLoc => 7,
-			SelType => "",
-			Capacity => 2,
-			SelSchedType => "One Time"
+			"Desc" => "For class $class1",
+			"SelLoc" => 7,
+			"SelType" => "",
+			"Capacity" => 2,
+			"SelSchedType" => "One Time"
 		);
 		$ch = curl_init();
 		curl_setopt($ch,CURLOPT_URL,$url2);
@@ -83,13 +83,13 @@
 		$duration = 2;
 		$inputEndTime = convertToTime($time,$duration);
 		$date3 = array(
-			CDate => $date,
-			first_avail_date => 0,
-			StartHr => $inputStartTime,
-			StartMin => "00",
-			EndHr => $inputEndTime,
-			EndMin => "00",
-			chkFirst => 0
+			"CDate" => $date,
+			"first_avail_date" => 0,
+			"StartHr" => $inputStartTime,
+			"StartMin" => "00",
+			"EndHr" => $inputEndTime,
+			"EndMin" => "00",
+			"chkFirst" => 0
 		);
 		curl_setopt($ch,CURLOPT_URL,$url3);
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
@@ -104,7 +104,7 @@
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch,CURLOPT_POST,true);
 		$date4 = array(
-			Notes => ""
+			"Notes" => ""
 		);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$data4);
 		$output = curl_exec($ch);
