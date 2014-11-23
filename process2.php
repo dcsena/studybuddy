@@ -1,6 +1,5 @@
 <?php
 	require_once("header.php");
-	echo "penis";
 	if (!isset($_POST['password1']) || 
 		!isset($_POST['email']) ||
 		!isset($_POST['fname']) ||
@@ -31,6 +30,7 @@
 	$query = "INSERT INTO Users (name, email, passwordhash, passwordsalt, college, grad_year, major) " .
 					"VALUES ('$name', '$email', '$passwordhash', '$passwordsalt', '$college', $grad_year, '$major')";
 	$result = $db->query($query);
+	echo json_encode($result);
 	displaySuccess();
 
 
