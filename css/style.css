@@ -86,6 +86,7 @@ h4{
 	font-weight: bold;
 }
 #status{
+	display: inline;
 	position: relative;
 	text-align: center;
 	padding-right: 5%;
@@ -93,7 +94,6 @@ h4{
 #status a{
 	text-decoration: none;
 	border-radius: 1px solid black;
-	background-color: gray;
 }
 legend{
 	width: 100%;
@@ -107,5 +107,8 @@ legend{
 	border: groove;
 }
 footer{
+	text-align: center;
+}
+img{
 	text-align: center;
 }
