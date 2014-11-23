@@ -4,7 +4,8 @@
 		or die('Could not connect: ' . pg_last_error());
 
 	$query = 'CREATE TABLE ClassList (
-		email varchar(255) PRIMARY KEY,
+		id SERIAL PRIMARY KEY,
+		email varchar(255) NOT NULL,
 		class1 varchar(50) NOT NULL,
 		dates varchar(50),
 		time varchar(255),
