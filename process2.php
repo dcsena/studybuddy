@@ -13,8 +13,8 @@
 	$name = $_POST['fname'];
 	$password1 = $_POST['password1'];
 	if (count($password1) <= 0) displayError("Password must be a non-zero number of characters");
-	$salt = openssl_random_pseudo_bytes(20);
-	$hash = crypt($salt . $password1);
+	$salt = (string)rand();
+	$hash = crypt($password1, $salt);
 	$email = $_POST['email'];
 	$college = $_POST['school'];
 	$grade = $_POST['grade'];
@@ -44,6 +44,7 @@
 	}
 
 	function displaySuccess() {
+		global $name;
 		echo "Welcome, " . $name . "<br>Your account has been created!  Now go find some study buddies";
 	}
 ?>

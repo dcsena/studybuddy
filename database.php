@@ -12,7 +12,7 @@
 			return pg_fetch_array($this->dbh, null, PGSQL_ASSOC);
 		}
 		function __destruct() {
-			pg_close($conn);
+			pg_close($this->conn);
 		}
 	}
 ?>

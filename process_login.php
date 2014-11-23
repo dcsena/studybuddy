@@ -13,7 +13,7 @@
 		exit;
 	} else {
 		echo json_encode($result);
-		$hash = crypt($result['passwordsalt'] . $password);
+		$hash = crypt($password, $result['passwordsalt']);
 		if ($hash == $result['passwordhash']) {
 			echo "congrats, you've logged in";
 		} else {
