@@ -30,7 +30,8 @@
 
 	
 	$query = "INSERT INTO Users (name, email, passwordhash, passwordsalt, college, grad_year, major) " .
-					"VALUES ('$name', '$email', '$passwordhash', '$passwordsalt', '$college', '$grad_year', '$major')";
+					"VALUES ('$name', '$email', '$passwordhash', '$passwordsalt', '$college', '$grade', '$major')";
+	echo $query;
 	$result = $db->query($query);
 	echo json_encode($result);
 	displaySuccess();
