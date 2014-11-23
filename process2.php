@@ -18,6 +18,7 @@
 	$email = $_POST['email'];
 	$college = $_POST['school'];
 	$grade = $_POST['grade'];
+	$grade = 2016;
 	$major = $_POST['major'][0];
 
 
@@ -29,7 +30,7 @@
 
 	
 	$query = "INSERT INTO Users (name, email, passwordhash, passwordsalt, college, grad_year, major) " .
-					"VALUES ('$name', '$email', '$passwordhash', '$passwordsalt', '$college', $grad_year, '$major')";
+					"VALUES ('$name', '$email', '$passwordhash', '$passwordsalt', '$college', '$grad_year', '$major')";
 	$result = $db->query($query);
 	echo json_encode($result);
 	displaySuccess();
