@@ -1,6 +1,6 @@
 <?php
 	include("database.php");
-	$email = mysql_real_escape_string($_POST['email']);
+	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$db = new Database();
 	$query = "SELECT * FROM Users WHERE email='" . $email . "'";
@@ -17,7 +17,5 @@
 			echo "incorrrect password.  this incident has been reported";
 		}
 	}
-
-
 
 ?>
