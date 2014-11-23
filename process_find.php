@@ -55,7 +55,7 @@
 		WHERE class1 = '". $class1 . "'";
 	$db->query($query);
 	$match = $db->get_row();
-	if (($match == null){
+	if ($match == null){
 		echo "0 matches";
 	}
 	else{
