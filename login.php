@@ -32,6 +32,8 @@
 	</form>
 
 	<br/>
+
+	<a href="http://fathomless-dusk-5464.herokuapp.com/signup.php">I don't have an account!</a>
 	<?php
 		include("footer.php");
 	?>

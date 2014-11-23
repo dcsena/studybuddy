@@ -15,7 +15,7 @@
 	$query = "SELECT * FROM ClassList WHERE class='" . $class1  . "'";
 	$db->query($query);
 	$result = $db->get_row();
-
+	$location = "";
 	
 	$query = "INSERT INTO ClassList (class, dates, time, location) " .
 					"VALUES ('$class1', '$date', '$time')";
