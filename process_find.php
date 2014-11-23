@@ -141,7 +141,6 @@
 		echo "Class successfully entered.<br/>";
 	}
 
-	// include_once('php-mailjet.class-mailjet-0.1.php');
 	 
 	// // Create a new Object
 	// $mj = new Mailjet();
@@ -164,9 +163,25 @@
 			echo "$match[0]";
 		}
 	}
-	$user2 = "Matt Leibold";
-	$msg = "You will be meeting with $user2 for $class1 at: $time on $date at $location.";
-	$headers = "From: studybuddy@sb.com"."<".$email. ">\r\n";
-	mail($email, 'Study Buddy Signup', $msg,$headers);
-	echo "Email sent";
+	include("php-mailjet-v3-simple.class.php");
+	function sendEmail() {
+	    $mj = new Mailjet();
+	    $user2 = "Matt Leibold";
+	    $msg = "You will be meeting with $user2 for $class1 at: $time on $date at $location.";
+	    $params = array(
+	        "method" => "POST",
+	        "from" => "studybuddy@buddy.com",
+	        "to" => $email,
+	        "subject" => "Study Buddy Meetup",
+	        "text" => $msg
+	    );
+
+	    $result = $mj->sendEmail($params);
+
+	    if ($mj->_response_code == 200)
+	       echo "success - email sent";
+	    else
+	       echo "error - ".$mj->_response_code;
+    	return $result;
+}
 ?>
