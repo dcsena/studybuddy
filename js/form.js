@@ -1,7 +1,7 @@
 function showDate(){
 	$( "#datepicker" ).datepicker({
-	showButtonPanel: true
-});
+		showButtonPanel: true
+	});
 }
 function setSchool(){
 	var schoolList = ["University of Michigan"];

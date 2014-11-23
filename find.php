@@ -9,43 +9,36 @@
 
 
 	<form role="form" class="form" name="account_setup" autocomplete="off" action="process_find.php" method="post" onSubmit="return validateFind(this)">
-
-		<div id="accountForm" class="form-group">
+		<div id="accountForm" class="form-group" style="width: 100%; margin: 0 auto; display: block; text-align: center; padding-bottom: 10px;">
 			<fieldset>
-				<label> List the classes you need help in: </br>
-					Class 1: *
-					<input type="text" name = "class1" required>
-					</br>
-					Class 2:
-					<input type="text" name = "class2">
-					</br>
-					Class 3:
-					<input type="text" name = "class3">
-					</br>
-					Class 4:
-					<input type="text" name = "class4">	
-					</br>				
+				<label> What class do you need help in? <br/>
+					<input type="text" name="class1" required class="form-control" placeholder="math101">
+					</br>			
 				</label>
 				<br/>
 				<label> What day are you available to study? <br/>
-					<input type="text" name = "date" id = "datepicker">
+					<input type="text" name="date" id="datepicker" class="form-control">
 				</label>
-				<br/>
+				<br/><br/>
 				<label>
 					What time are you available to study? <br/>
-					<input type="time" name = "time">
+					<input type="time" name="time" class="form-control">
 				</label>
 			</fieldset>
+			<div id="buttons">
+				<button id="action_button" class="form_buttons btn btn-primary" type="submit">Submit</button>
+				<button class="form_buttons btn btn-default" type="reset" onclick="resetForm();">Reset</button>
+			</div>
 		</div>
 		<br/>
-
 		<!-- Submit/Reset Buttons -->
-		<div id="buttons">
-			<button id="action_button" class="form_buttons btn btn-primary" type="submit">Submit</button>
-			<button class="form_buttons btn btn-default" type="reset" onclick="resetForm();">Reset</button>
-		</div>
 	</form>
 	<script src="js/form.js"></script>
+	<script>
+		$(document).ready(function() {
+			showDate();
+		});
+	</script>
 <?php
 	} else {
 		echo "<h1>Login or create an account to start finding study buddies</h1>";
