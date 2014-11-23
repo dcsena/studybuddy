@@ -80,3 +80,10 @@ function setMajor() {
 	}
 	$('#major').multiselect();
 }
+
+function validateLogin(form){
+
+}
+function validateFind(form){
+	
+}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Study Buddy Signup</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
@@ -74,7 +74,7 @@ SET MAJOR -->
 					</select>
 				</label>
 				<br/>
-				<label> List the classes you need help in: </br>
+				<!-- <label> List the classes you need help in: </br>
 					Class 1:
 					<input type="text" name = "class1">
 					</br>
@@ -96,7 +96,7 @@ SET MAJOR -->
 				<label>
 					What time are you available to study?
 					<input type="time" name = "time">
-				</label>
+				</label> -->
 
 			</fieldset>
 		</div>
