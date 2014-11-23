@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>StudyBuddy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+	<link href="css/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-multiselect.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+	<header>
 <?php
 	$menu = array(
 		'home'  => array('text'=>'Home',  'url'=>'index.php'),
@@ -36,3 +50,4 @@
 		echo "<h2>Welcome, " . $_SESSION['user'] . "</h2>";
 	}
 ?>
+</header>
