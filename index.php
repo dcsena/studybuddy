@@ -15,7 +15,7 @@
 	</header>
 	<br/>
 
-	<div id = "status"
+	<div id = "status">
 		<a href="signup.php">Signup</a>
 		<a href="login.php">Login</a>
 	</div>

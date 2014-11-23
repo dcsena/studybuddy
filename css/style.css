@@ -80,6 +80,11 @@ h1{
 	font-weight: bold;
 	padding-top: 4%;
 }
+h4{
+	font-size: 22px;
+	text-align: center;
+	font-weight: bold;
+}
 #status{
 	position: absolute;
 	top: 20;
