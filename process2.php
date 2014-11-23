@@ -4,10 +4,9 @@
 	if (!isset($_POST['password1']) || 
 		!isset($_POST['email']) ||
 		!isset($_POST['fname']) ||
-		!isset($_POST['school[]']) ||
+		!isset($_POST['school']) ||
 		!isset($_POST['grade']) ||
-		!isset($_POST['major']) ||
-		!isset($_POST['classes[]'])) {
+		!isset($_POST['major[]'])) {
 		displayError("Insufficient post parameters supplied.");
 	}
 	echo json_encode($_POST);
@@ -16,7 +15,7 @@
 	$salt = openssl_random_pseudo_bytes(20);
 	$hash = crypt($salt . $password1);
 	$email = $_POST['email'];
-	$college = $_POST['school[]'];
+	$college = $_POST['school'];
 	$grade = $_POST['grade'];
 	$major = $_POST['major'];
 

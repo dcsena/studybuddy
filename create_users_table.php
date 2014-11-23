@@ -1,6 +1,7 @@
 <?php	
-	$dbconn = pg_connect("host=ec2-54-243-245-159.compute-1.amazonaws.com dbname=d9ekpsg66labji user=awmugmpdenzddy password=ps-jTmFdmIIU8VMWs2A8nX_3eQ")
-		or die('Could not connect: ' . pg_last_error());
+	$dbconn = pg_connect("host=ec2-54-243-245-159.compute-1.amazonaws.com port=5432 dbname=d9ekpsg66labji user=awmugmpdenzddy password=ps-jTmFdmIIU8VMWs2A8nX_3eQ connect_timeout=5");
+	echo pg_last_error();
+		//or die('Could not connect: ' . pg_last_error());
 
 	$query = 'CREATE TABLE Users (
 		name varchar(50) NOT NULL,
@@ -11,7 +12,7 @@
 		grad_year integer,
 		major varchar(255)
 	);';
-	$result = pg_query($query) or die("Query failed: " . pg_last_error());
+	$result = pg_query($dbconn, $query) or die("Query failed: " . pg_last_error());
 	pg_free_result($result);
 
 	pg_close($dbconn);
