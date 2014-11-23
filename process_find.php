@@ -21,7 +21,7 @@
 	$query = "SELECT * FROM ClassList WHERE email='" . $email  . "'";
 	$db->query($query);
 	$result = $db->get_row();
-	$location = "";
+	$location = "UGLI";
 	
 	$query = "INSERT INTO ClassList (email, class1, dates, time, location) " .
 					"VALUES ('$email', '$class1', '$date', '$time','$location')";
@@ -54,15 +54,17 @@
 	$query = "SELECT * FROM ClassList
 		WHERE class1 = '". $class1 . "'";
 	$db->query($query);
-	if ($line = pg_fetch_assoc($db->dbh)){
+	$match = $db->get_row();
+	if (($match == null){
+		echo "0 matches";
 	}
 	else{
-		while ($row = pg_fetch_array($db->dbh)){
-			echo "$row[0]";
+		echo "$match[0]";
+		while ($match = $db->get_row()){
+			echo "$match[0]";
 		}
 	}
 	$user2 = "Matt Leibold";
-	$location = "UGLI";
 	$msg = "You will be meeting with $user2 for $class1 at: $time on $date at $location.";
 	$headers = "From: studybuddy@sb.com"."<".$email. ">\r\n";
 	mail($email, 'Study Buddy Signup', $msg,$headers);
