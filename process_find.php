@@ -32,7 +32,7 @@
 	}
 
 	function displaySuccess() {
-		echo "Welcome, " . $name . "<br>Your account has been created!  Now go find some study buddies";
+		echo "Class successfully entered.<br/>";
 	}
 
 	// include_once('php-mailjet.class-mailjet-0.1.php');
@@ -45,7 +45,16 @@
 	 
 	// // Display your firstname
 	// echo $me->infos->firstname;
-
-
-
+	if (!isset($_SESSION['email'])) {
+		echo "you need to login";
+	}
+	else{
+		$to = $_SESSION['email'];
+		$user2 = "Matt Leibold";
+		$location = "UGLI";
+		$msg = "You will be meeting with $user2 for $class1 at: $time on $date at $location.";
+		$headers = "From: studybuddy@sb.com"."<".$to. ">\r\n";
+		mail($to, 'Study Buddy Signup', $msg,$headers);
+		echo "Email sent";
+	}
 ?>
