@@ -7,16 +7,18 @@
 		exit();
 	}
 	$email = $_SESSION['email'];
-	$name = $_SESSION['name'];
+	$name = $_SESSION['user'];
 	if (!isset($_POST['class1']) || 
 		!isset($_POST['date']) ||
-		!isset($_POST['time'])){
+		!isset($_POST['time1']) ||
+		!isset($_POST['time2'])){
 		displayError("Insufficient post parameters supplied.");
 	}
 	echo json_encode($_POST);
 	$class1 = $_POST['class1'];
 	$date = $_POST['date'];
-	$time = $_POST['time'];
+	$time1 = $_POST['time1'];
+	$time2 = $_POST['time2'];
 	echo "Made it this far!";
 	$db = new Database();
 	$query = "SELECT * FROM ClassList WHERE email='" . $email  . "'";
@@ -126,7 +128,7 @@
 	}
 	// getLocation($date,$time);
 	$query = "INSERT INTO ClassList (email, class1, dates, time, location) " .
-					"VALUES ('$email', '$class1', '$date', '$time','$location')";
+					"VALUES ('$email', '$class1', '$date', '$time1','$location')";
 	echo $query;
 	$result = $db->query($query);
 	echo json_encode($result);
@@ -168,9 +170,9 @@
 		echo "0 matches";
 	}
 	else{
-		echo "$match[0]";
+		echo json_encode($match);
 		while ($match = $db->get_row()){
-			sendEmail($class1,$match[1],"Matt Leibold",$date,$time,$location);
+			sendEmail($class1,$match['email'], "Matt Leibold",$date,$time1,$location);
 		}
 	}
 
