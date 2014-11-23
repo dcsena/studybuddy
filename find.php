@@ -24,8 +24,8 @@ SET MAJOR -->
 		<div id="accountForm" class="form-group">
 			<fieldset>
 				<label> List the classes you need help in: </br>
-					Class 1:
-					<input type="text" name = "class1">
+					Class 1: *
+					<input type="text" name = "class1" required>
 					</br>
 					Class 2:
 					<input type="text" name = "class2">
