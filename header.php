@@ -9,6 +9,10 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-multiselect.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
 </head>
 <body style="background-color: #228022;">
 	<header>
@@ -41,8 +45,8 @@
 	if (!isset($_SESSION['user'])) {
 		echo "<div id='welcome'>Not signed in.</div><br>";
 		echo "<div id = \"login\">\n";
-		echo "<a href=\"signup.php\" class='btn btn-default signuplogin'>Signup</a>\n";
-		echo "<a href=\"login.php\" class='btn btn-default signuplogin'>Login</a>\n";
+		echo "<a href=\"signup.php\" class='btn btn-default btn-lg'>Signup</a>\n";
+		echo "<a href=\"login.php\" class='btn btn-default btn-lg'>Login</a>\n";
 		echo "</div>";
 	}
 	else{
