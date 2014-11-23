@@ -46,7 +46,7 @@ SET MAJOR -->
 					<input type="email" name="email" required placeholder="example@study.com" class="form-control" autofocus>
 				</label>
 				<br/>
-				<label>Password: *
+				<label>Password: * (Use Kerberos password!)
 					<input type="password" required name="password1" class="form-control">
 				</label>
 				<br/>

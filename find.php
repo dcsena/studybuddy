@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Find Buddies</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="css/jquery-ui.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-multiselect.css">
+	<link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+	<link rel="stylesheet" media="screen" type="text/css" href="css/layout.css" />
+	<!-- <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-multiselect.css"> -->
 	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
 </head>
 <body>
@@ -39,7 +40,8 @@ SET MAJOR -->
 				</label>
 				<br/>
 				<label> What day are you available to study? <br/>
-					<input type="text" name = "date" id = "datepicker">
+					<input class="date" id="inputDate" value="01/01/2015" />
+					<label id="closeOnSelect"><input type="checkbox" /> Close on selection</label>
 				</label>
 				<br/>
 				<label>
@@ -61,10 +63,12 @@ SET MAJOR -->
 		include("footer.php");
 	?>
 
-  	<script type="text/javascript" src="js/jquery.js"></script>
-  	<script type="text/javascript" src="js/jquery-ui.js"></script>
+<!--  	<script type="text/javascript" src="js/jquery.js"></script>
+   	<script type="text/javascript" src="js/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script> -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/datepicker.js"></script>
 	<script src="js/form.js"></script>
 </body>
 </html>
