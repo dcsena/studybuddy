@@ -6,7 +6,7 @@
 		!isset($_POST['fname']) ||
 		!isset($_POST['school']) ||
 		!isset($_POST['grade']) ||
-		!isset($_POST['major[]'])) {
+		!isset($_POST['major'])) {
 		displayError("Insufficient post parameters supplied.");
 	}
 	echo json_encode($_POST);
