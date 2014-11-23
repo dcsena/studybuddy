@@ -3,7 +3,7 @@
 		var $conn;
 		var $dbh;
 		function Database() {
-			$this->conn = pg_connect("host=ec2-54-243-245-159.compute-1.amazonaws.com dbname=d9ekpsg66labji user=awmugmpdenzddy password=ps-jTmFdmIIU8VMWs2A8nX_3eQ")
+			$this->dbconn = pg_connect("host=ec2-54-243-245-159.compute-1.amazonaws.com port=5432 dbname=d9ekpsg66labji user=awmugmpdemzddy password=ps-jTmFdmIIU8VMWs2A8nX_3eQ connect_timeout=5")
 				or die('Could not connect: ' . pg_last_error());
 		}
 		function query($q) {

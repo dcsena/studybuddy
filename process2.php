@@ -10,6 +10,7 @@
 		displayError("Insufficient post parameters supplied.");
 	}
 	echo json_encode($_POST);
+	$name = $_POST['fname'];
 	$password1 = $_POST['password1'];
 	if (count($password1) <= 0) displayError("Password must be a non-zero number of characters");
 	$salt = openssl_random_pseudo_bytes(20);
@@ -17,21 +18,21 @@
 	$email = $_POST['email'];
 	$college = $_POST['school'];
 	$grade = $_POST['grade'];
-	$major = $_POST['major'];
+	$major = $_POST['major'][0];
 
 
-	//$db = new Database();
-	//$query = "SELECT * FROM Users WHERE email='" . $email  . "'";
-	//$db->query($query);
-	//$result = $db->get_row();
+	$db = new Database();
+	$query = "SELECT * FROM Users WHERE email='" . $email  . "'";
+	$db->query($query);
+	$result = $db->get_row();
 	if ($result) displayError("The email address is already in use");
 
-	/*
-	$query = 	"INSERT INTO Users (name, email, passwordhash, passwordsalt, college, grad_year, major) " .
+	
+	$query = "INSERT INTO Users (name, email, passwordhash, passwordsalt, college, grad_year, major) " .
 					"VALUES ('$name', '$email', '$passwordhash', '$passwordsalt', '$college', $grad_year, '$major')";
-	$result = pg_query($query) or displayError(pg_last_error());
+	$result = $db->query($query);
+	displaySuccess();
 
-	*/
 
 	require_once("footer.php");
 
@@ -40,6 +41,6 @@
 	}
 
 	function displaySuccess() {
-
+		echo "Welcome, " . $name . "<br>Your account has been created!  Now go find some study buddies";
 	}
 ?>
