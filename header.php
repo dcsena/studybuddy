@@ -1,4 +1,9 @@
 <?php
+	session_start();
+	if (!isset($_SESSION['user'])) {
+		$_SESSION['user'] = "unknown user";
+	}
+	echo "welcome, " . $_SESSION['user'];
 	$menu = array(
 		'home'  => array('text'=>'Home',  'url'=>'index.php'),
 		'interests'  => array('text'=>'Find Buddies',  'url'=>'find.php'),
