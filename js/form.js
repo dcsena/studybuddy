@@ -1,10 +1,3 @@
-/* Hide both buyerForm and sellerForm on load */
-// function hideBoth() {
-// 	$("#buyerForm").removeClass("hidden");
-// 	$("#buyerForm").hide();
-// 	$("#sellerForm").removeClass("hidden");
-// 	$("#sellerForm").hide();
-// }
 function showDate(){
 	var date = $('#datepicker');
 	date.datepicker({showOn: "both"});
@@ -43,7 +36,7 @@ function validateUsername(field) {
 	return ""
 }
 
-function validatePasswords(p1) {
+function validatePassword(p1) {
 	if (p1 == "") return "No Password was entered.\n"
 	else if (p1.length < 6)
 		return "Passwords must be at least 6 characters.\n"
@@ -63,7 +56,7 @@ function validateFname(field) {
 function validate(form) {
 	fail = validateEmail(form.email.value);
 	fail += validateUsername(form.username.value);
-	fail += validatePasswords(form.password.value);
+	fail += validatePassword(form.password.value);
 	fail += validateFname(form.fname.value);
 	if (fail == "") {
 		/*$("#submittedAlert").fadeIn();*/
