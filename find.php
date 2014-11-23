@@ -5,7 +5,7 @@
 	if (isset($_SESSION['user'])) {
 ?>
 <h1>StudyBuddy</h1>
-<h4>Who are you studying with?</h4>
+<h4><i>Who are you studying with?</i></h4>
 
 
 	<form role="form" class="form" name="account_setup" autocomplete="off" action="process_find.php" method="post" onSubmit="return validateFind(this)">
@@ -24,7 +24,7 @@
 					When are you available to study? <br/>
 					<!--<input id="studytimes" type="time" name="time" class="form-control">-->
 					<div id="studytimes" style="margin-bottom: 20px;"></div>
-					<span id="time1">0:00</span> to <span id="time2">0:00</span>
+					<span id="time1">12:00 am</span> to <span id="time2">12:00 am</span>
 					<input type="hidden" name="time1" id="time1input">
 					<input type="hidden" name="time2" id="time2input">
 				</label>

@@ -50,7 +50,7 @@
 		echo "</div>";
 	}
 	else{
-		echo "<div id='welcome'>Welcome, " . $_SESSION['user'] . "</div>";
+		echo "<div id='welcome'>Welcome, " . $_SESSION['user'] . " - <a href='logout.php'>logout</a></div>";
 	}
 ?>
 </header>
