@@ -41,14 +41,14 @@
 
 	function displayError($errorMsg) {
 		echo $errorMsg;
-		header("Location: localhost/studybuddy/studybuddy/signup.php");
+		header("Location: /signup.php");
 		exit();
 	}
 
 	function displaySuccess() {
 		global $name;
 		echo "Welcome, " . $name . "<br>Your account has been created!  Now go find some study buddies";
-		header("Location: localhost/studybuddy/studybuddy/find.php");
+		header("Location: /find.php");
 		exit();
 	}
 ?>

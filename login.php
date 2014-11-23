@@ -33,7 +33,8 @@
 
 	<br/>
 
-	<a href="http://fathomless-dusk-5464.herokuapp.com/signup.php">I don't have an account!</a>
+	<!-- <a href="http://fathomless-dusk-5464.herokuapp.com/signup.php">I don't have an account!</a> -->
+	<a href="/signup.php">I don't have an account!</a>
 	<?php
 		include("footer.php");
 	?>
