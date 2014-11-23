@@ -1,5 +1,6 @@
 <?php
 	require_once("header.php");
+	require_once("database.php");
 	if (!isset($_POST['password1']) || 
 		!isset($_POST['email']) ||
 		!isset($_POST['fname']) ||
