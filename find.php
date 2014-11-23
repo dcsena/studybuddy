@@ -12,8 +12,11 @@
 <body>
 <!-- NEEDS TO BE IMPLEMENTED:
 SET MAJOR -->
-<body onload="setMajor(); setSchool();">
+<body>
 	<header>
+		<?php
+			include("header.php");
+		?>
 		<h1>StudyBuddy</h1>
 		<h4>Who are you studying with?</h4>
 	</header>
