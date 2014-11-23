@@ -18,7 +18,7 @@
 	$location = "";
 	
 	$query = "INSERT INTO ClassList (class, dates, time, location) " .
-					"VALUES ('$class1', '$date', '$time',$location)";
+					"VALUES ('$class1', '$date', '$time','$location')";
 	echo $query;
 	$result = $db->query($query);
 	echo json_encode($result);
