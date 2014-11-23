@@ -1,6 +1,9 @@
 <?php
 	include("header.php");
 ?>
+<?php
+	if (isset($_SESSION['user'])) {
+?>
 <h1>StudyBuddy</h1>
 <h4>Who are you studying with?</h4>
 
@@ -44,5 +47,8 @@
 	</form>
 	<script src="js/form.js"></script>
 <?php
+	} else {
+		echo "<h1>Login or create an account to start finding study buddies</h1>";
+	}
 	include("footer.php");
 ?>

@@ -60,6 +60,7 @@ SET MAJOR -->
 		setMajor();
 		setSchool();
 	});
+	$('#login').hide();
 	</script>
 	<?php
 		include("footer.php");
