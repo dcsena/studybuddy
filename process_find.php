@@ -58,7 +58,7 @@
 	}
 	else{
 		while ($row = pg_fetch_array($db->dbh)){
-			echo "$row[0];
+			echo "$row[0]";
 		}
 	}
 	$user2 = "Matt Leibold";
