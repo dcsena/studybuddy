@@ -61,6 +61,65 @@
 		$output = curl_exec($ch);
 		$info = curl_getinfo($ch);
 		curl_close($ch);
+		$url3 = "http://umich.resourcescheduler.net/rsrequest/Wizard1.asp";
+		function convertToTime($time,$num){
+			echo($time);
+			$timelist = explode(":",$time);
+			$hr = $timelist[0];
+			$timelist2 = explode(" ",$time);
+			$day = $timelist2[1];
+			if ($hr > 10){
+				$hr = (($hr+$num)%12);
+				if ($day == 'AM')
+					$day = 'PM';
+				else
+					$day = 'AM';
+			}
+			return "$hr $day";
+			$ch = curl_init();
+		}
+
+		$inputStartTime = convertToTime($time,0);
+		$duration = 2;
+		$inputEndTime = convertToTime($time,$duration);
+		$date3 = array(
+			CDate => $date,
+			first_avail_date => 0,
+			StartHr => $inputStartTime,
+			StartMin => "00",
+			EndHr => $inputEndTime,
+			EndMin => "00",
+			chkFirst => 0
+		);
+		curl_setopt($ch,CURLOPT_URL,$url3);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch,CURLOPT_POST,true);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$data3);
+		$output = curl_exec($ch);
+		$info = curl_getinfo($ch);
+		curl_close($ch);
+
+		$url4 = "http://umich.resourcescheduler.net/rsrequest/Wizard3.asp";
+		curl_setopt($ch,CURLOPT_URL,$url4);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch,CURLOPT_POST,true);
+		$date4 = array(
+			Notes => ""
+		);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$data4);
+		$output = curl_exec($ch);
+		$info = curl_getinfo($ch);
+		curl_close($ch);
+
+
+		$url5 = "http://umich.resourcescheduler.net/rsrequest/WizardFinish.asp";
+		curl_setopt($ch,CURLOPT_URL,$url5);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch,CURLOPT_POST,true);
+		$output = curl_exec($ch);
+		$info = curl_getinfo($ch);
+		curl_close($ch);
+		$location = "Hatcher and Shapiro Libraries";
 		return $location;
 	}
 	
