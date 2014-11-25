@@ -68,20 +68,6 @@ function validate(form) {
 	}
 }
 
-function setMajor() {
-	var majorTypes = ["Math","Physics","Computer Science"];
-
-	var dropdown = document.getElementById("major");
-	dropdown.remove(0);
-	for (var i = 0; i < majorTypes.length; ++i) {
-		var opt = document.createElement('option');
-		opt.innerHTML = majorTypes[i];
-		opt.value = majorTypes[i];
-		dropdown.appendChild(opt);
-	}
-	$('#major').multiselect();
-}
-
 function validateLogin(form){
 
 }

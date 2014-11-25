@@ -9,7 +9,7 @@
 
 
 	<form role="form" class="form" name="account_setup" autocomplete="off" action="process_find.php" method="post" onSubmit="return validateFind(this)">
-		<div id="accountForm" class="form-group" style="width: 100%; margin: 0 auto; display: block; text-align: center; padding-bottom: 10px;">
+		<div id="accountForm" class="form-group">
 			<fieldset>
 				<label> What class do you need help in? <br/>
 					<input type="text" name="class1" required class="form-control" placeholder="math101">

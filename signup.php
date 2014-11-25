@@ -36,7 +36,7 @@ SET MAJOR -->
 					</select>
 				</label>
 				<br/>
-				<label> What major are you? </br>
+				<label> What major/majors are you? </br>
 					<select name = "major[]" id="major" class = "form-control" multiple = "multiple">
 						<option>Select Major Here</option>
 					</select>
@@ -56,6 +56,39 @@ SET MAJOR -->
 
 	<script src="js/form.js"></script>
 	<script>
+	<?php // get all the majors and put them in a javascript array called majors
+		$major = "";
+		$major_array = array();
+		$char = '';
+		$major_file = fopen("majors.txt", "r");
+		while (false !== ($char = fgetc($major_file))) {
+			if ($char !== "!") {
+				$major .= $char;
+			} else {
+				array_push($major_array, $major);
+				$major = "";
+			}
+		}
+		array_unique($major_array);
+		echo "var majors = [";
+		for ($i = 0; $i < count($major_array); $i++) {
+			echo "\"" . $major_array[$i] . "\"";
+			if ($i != count($major_array) - 1) echo ",";
+		}
+		echo "];";
+	?>
+	majors.sort()
+	function setMajor() {
+		var dropdown = document.getElementById("major");
+		dropdown.remove(0);
+		for (var i = 0; i < majors.length; ++i) {
+			var opt = document.createElement('option');
+			opt.innerHTML = majors[i];
+			opt.value = majors[i];
+			dropdown.appendChild(opt);
+		}
+		$('#major').multiselect();
+	}
 	$(document).ready(function(){
 		setMajor();
 		setSchool();

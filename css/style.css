@@ -107,10 +107,16 @@ legend{
 	font-family: Century Gothic, sans-serif;
 	text-align: center;
 }
-#accountForm{
-	margin-top: 50px;
+#accountForm {
 	background-color: white;
 	border: groove;
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	background-color: #DDDDDD;
 }
 footer{
 	background-color: inherit;
@@ -142,4 +148,8 @@ img{
 	display: block;
 	margin: 0 auto;
 	text-align: center;
+}
+.multiselect-container {
+	overflow-y: scroll;
+	height: 200px;
 }
