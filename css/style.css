@@ -68,7 +68,8 @@ nav ul li:hover, nav ul li:active{
 	background: linear-gradient(to top, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
 }
 body {
-	background-color: #008000;
+	background-color: #228022 !important;
+	height: 100%;"
 }
 .current{
 	color: red;
@@ -112,7 +113,11 @@ legend{
 	border: groove;
 }
 footer{
+	background-color: inherit;
 	text-align: center;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
 }
 img{
 	text-align: center;
@@ -131,4 +136,10 @@ img{
 	top: 1%;
 	color: white;
 	z-index: 200;
+}
+.main_image {
+	width: 95%;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
 }

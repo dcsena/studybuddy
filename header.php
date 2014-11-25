@@ -1,3 +1,7 @@
+<?php
+	if (!isset($_SESSION)) session_start();
+	if (!isset($no_prev_url)) setcookie('prev_url', $_SERVER['REQUEST_URI']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +18,7 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
 </head>
-<body style="background-color: #228022;">
+<body>
 	<header>
 <?php
 	$menu = array(
@@ -41,7 +45,6 @@
 		return $html;
 	}
 	echo generatureMenu($menu);
-	session_start();
 	if (!isset($_SESSION['user'])) {
 		echo "<div id='welcome'>Not signed in.</div><br>";
 		echo "<div id = \"login\">\n";
