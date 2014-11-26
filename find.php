@@ -12,7 +12,7 @@
 		<div id="accountForm" class="form-group">
 			<fieldset>
 				<label> What class do you need help in? <br/>
-					<input type="text" name="class1" required class="form-control" placeholder="math101">
+					<input type="text" name="class" required class="form-control" placeholder="math101">
 					</br>			
 				</label>
 				<br/>

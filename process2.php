@@ -2,7 +2,7 @@
 	require_once("header.php");
 	require_once("database.php");
 	function get_post($a) {
-		return pg_escape_string($a);
+		return pg_escape_string($_POST[$a]);
 	}
 	if (!isset($_POST['password1']) || 
 		!isset($_POST['email']) ||

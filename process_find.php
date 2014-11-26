@@ -1,10 +1,8 @@
 <?php
-	require_once("header.php");
+	if (!isset($_SESSION)) session_start();
 	require_once("database.php");
 	if (!isset($_SESSION['email'])) {
-		echo "you need to login first";
-		header("Location: /login.php");
-		exit();
+		displayError("You need to login first");
 	}
 	$email = $_SESSION['email'];
 	$name = $_SESSION['user'];
@@ -15,25 +13,64 @@
 		displayError("Insufficient post parameters supplied.");
 	}
 	function get_post($a) {
-		return pg_escape_string($a);
+		return pg_escape_string($_POST[$a]);
 	}
-	$class = get_post("class");
+	$class = strtolower(get_post("class"));
 	$date = strtotime(get_post("date"));
 	$time1 = $date + intval(get_post("time1")) * 60 * 60;
 	$time2 = $date + intval(get_post("time2")) * 60 * 60;
-	
-	/*
-	echo json_encode($_POST);
-	$class1 = $_POST['class1'];
-	$date = $_POST['date'];
-	$time1 = $_POST['time1'];
-	$time2 = $_POST['time2'];
-	echo "Made it this far!";
 	$db = new Database();
-	$query = "SELECT * FROM ClassList WHERE email='" . $email  . "'";
+	$db->query("INSERT INTO PartnerRequests (email, class, time1, time2, paired)" . 
+				" VALUES ('$email', '$class', $time1, $time2, false)");
+
+	displaySuccess();
+	function displayError($errorMsg) {
+		require("header.php");
+		echo "<div style='width: 100%; color:red; text-align: center;'>" . $errorMsg . "</div>";
+		require("footer.php");
+		exit();
+	}
+
+	function displaySuccess() {
+		header("Location: /find_sent.php");
+		exit();
+	}
+
+	/*
+	include("php-mailjet-v3-simple.class.php");
+	function sendEmail($class1,$to,$otherUsers,$meetTime,$meetDate,$meetLocation) {
+	    $mj = new Mailjet();
+	    $msg = "You will be meeting with $otherUsers for $class1 at: $meetTime on $meetDate at $meetLocation.";
+	    $params = array(
+	        "method" => "POST",
+	        "from" => "dcsena@umich.edu",
+	        "to" => $to,
+	        "subject" => "Study Buddy Meetup",
+	        "text" => $msg
+	    );
+
+	    $result = $mj->sendEmail($params);
+
+	    if ($mj->_response_code == 200)
+	       echo "success - email sent";
+	    else
+	       echo "error - ".$mj->_response_code;
+    	return $result;
+	}
+	$query = "SELECT * FROM ClassList
+		WHERE class1 = '". $class1 . "'";
 	$db->query($query);
-	$result = $db->get_row();
-	$location = "UGLI";
+	$match = $db->get_row();
+	if ($match == false){
+		echo "0 matches";
+	}
+	else{
+		echo json_encode($match);
+		while ($match = $db->get_row()){
+			sendEmail($class1,$match['email'], "Matt Leibold",$date,$time1,$location);
+		}
+	}
+
 	function getLocation($date, $time){
 
 		$ch = curl_init();
@@ -135,55 +172,5 @@
 		$location = "Hatcher and Shapiro Libraries";
 		return $location;
 	}
-	// getLocation($date,$time);
-	$query = "INSERT INTO ClassList (email, class1, dates, time, location) " .
-					"VALUES ('$email', '$class1', '$date', '$time1','$location')";
-	echo $query;
-	$result = $db->query($query);
-	echo json_encode($result);
-	displaySuccess();
-	
-
-	function displayError($errorMsg) {
-		echo $errorMsg;
-	}
-
-	function displaySuccess() {
-		echo "Class successfully entered.<br/>";
-	}
-	include("php-mailjet-v3-simple.class.php");
-	function sendEmail($class1,$to,$otherUsers,$meetTime,$meetDate,$meetLocation) {
-	    $mj = new Mailjet();
-	    $msg = "You will be meeting with $otherUsers for $class1 at: $meetTime on $meetDate at $meetLocation.";
-	    $params = array(
-	        "method" => "POST",
-	        "from" => "dcsena@umich.edu",
-	        "to" => $to,
-	        "subject" => "Study Buddy Meetup",
-	        "text" => $msg
-	    );
-
-	    $result = $mj->sendEmail($params);
-
-	    if ($mj->_response_code == 200)
-	       echo "success - email sent";
-	    else
-	       echo "error - ".$mj->_response_code;
-    	return $result;
-	}
-	$query = "SELECT * FROM ClassList
-		WHERE class1 = '". $class1 . "'";
-	$db->query($query);
-	$match = $db->get_row();
-	if ($match == false){
-		echo "0 matches";
-	}
-	else{
-		echo json_encode($match);
-		while ($match = $db->get_row()){
-			sendEmail($class1,$match['email'], "Matt Leibold",$date,$time1,$location);
-		}
-	}
-	require_once("footer.php");
 	*/
 ?>
