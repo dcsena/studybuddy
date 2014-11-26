@@ -17,6 +17,8 @@ body {
 	line-height: 1;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	background-color: #46b080 !important;
+	height: 100%;"
 }
 ol, ul {
 	list-style: none;
@@ -66,10 +68,6 @@ nav ul li:hover, nav ul li:active{
 	background: -o-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
 	background: -ms-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
 	background: linear-gradient(to top, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
-}
-body {
-	background-color: #228022 !important;
-	height: 100%;"
 }
 .current{
 	color: red;

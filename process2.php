@@ -1,6 +1,9 @@
 <?php
 	require_once("header.php");
 	require_once("database.php");
+	function get_post($a) {
+		return pg_escape_string($a);
+	}
 	if (!isset($_POST['password1']) || 
 		!isset($_POST['email']) ||
 		!isset($_POST['fname']) ||
@@ -9,17 +12,16 @@
 		!isset($_POST['major'])) {
 		displayError("Insufficient post parameters supplied.");
 	}
-	echo json_encode($_POST);
-	$name = $_POST['fname'];
-	$password1 = $_POST['password1'];
+	$name = get_post('fname');
+	$password1 = get_post('password1');
 	if (count($password1) <= 0) displayError("Password must be a non-zero number of characters");
 	$salt = (string)rand();
 	$hash = crypt($password1, $salt);
-	$email = $_POST['email'];
-	$college = $_POST['school'];
-	$grade = $_POST['grade'];
+	$email = get_post('email');
+	$college = get_post('school');
+	$grade = get_post('grade');
 	$grade = 2016;
-	$major = $_POST['major'][0];
+	$major = pg_escape_string($_POST['major'][0]);
 
 
 	$db = new Database();

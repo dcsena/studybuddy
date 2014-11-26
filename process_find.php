@@ -8,12 +8,21 @@
 	}
 	$email = $_SESSION['email'];
 	$name = $_SESSION['user'];
-	if (!isset($_POST['class1']) || 
+	if (!isset($_POST['class']) || 
 		!isset($_POST['date']) ||
 		!isset($_POST['time1']) ||
 		!isset($_POST['time2'])){
 		displayError("Insufficient post parameters supplied.");
 	}
+	function get_post($a) {
+		return pg_escape_string($a);
+	}
+	$class = get_post("class");
+	$date = strtotime(get_post("date"));
+	$time1 = $date + intval(get_post("time1")) * 60 * 60;
+	$time2 = $date + intval(get_post("time2")) * 60 * 60;
+	
+	/*
 	echo json_encode($_POST);
 	$class1 = $_POST['class1'];
 	$date = $_POST['date'];
@@ -175,6 +184,6 @@
 			sendEmail($class1,$match['email'], "Matt Leibold",$date,$time1,$location);
 		}
 	}
-
 	require_once("footer.php");
+	*/
 ?>
