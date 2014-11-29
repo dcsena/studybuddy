@@ -2,7 +2,7 @@
 	include("header.php");
 	if (isset($_SESSION['user'])) {
 ?>
-	<h1> Meet friends in your classes. </h1>
+	<h1> Study Buddy </h1>
 	<br/>
 <?php } ?>
 
@@ -14,7 +14,7 @@
 	$row = $db->get_row();
 	echo "<div class='main_image'>";
 	if ($row) {
-		echo "<p>Below are your current pairings:</p>";
+		echo "<p style='font-size: 150%;'>Below are your current pairings:</p>";
 		$partnerEmail = $row['email1'];
 		if ($row['email1'] == $email) $partnerEmail = $row['email2'];
 		echo "<table class='pairing_table'><tr><th>Class</th><th>Partner Email</th></tr>";

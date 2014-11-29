@@ -4,8 +4,8 @@
 <?php
 	if (isset($_SESSION['user'])) {
 ?>
-<h1>StudyBuddy</h1>
-<h4><i>Who are you studying with?</i></h4>
+<h1>Study Buddy</h1>
+<h4><i>Meet friends in your classes.</i></h4>
 
 
 	<form role="form" class="form" name="account_setup" autocomplete="off" action="process_find.php" method="post" onSubmit="return validateFind(this)">
