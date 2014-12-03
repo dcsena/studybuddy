@@ -2,7 +2,7 @@
 <!-- NEEDS TO BE IMPLEMENTED:
 SET MAJOR -->
 <div id='maincontent' style="width: 100%; background-color: inherit; text-align: center;">
-	<form role="form" class="form" name="account_setup" autocomplete="off" action="process2.php" method="post" onSubmit="return validate(this)">
+	<form role="form" class="form" name="account_setup" autocomplete="off" action="process_signup.php" method="post" onSubmit="return validate(this)">
 		<div id="accountForm" class="form-group" style="background-color: #DDDDDD;">
 			<fieldset>
 				<legend>Account Information:</legend>
